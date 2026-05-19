@@ -1,0 +1,1776 @@
+<html lang="en"><head manus-helper-ready="true">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WE GO · Seniors · L1 U2 · Session 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;900&amp;family=Playfair+Display:wght@700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#05046A;
+  --yellow:#F1C405;
+  --blue:#0057FF;
+  --purple:#7B2FBE;
+  --green:#00C853;
+  --orange:#FF6B35;
+  --teal:#00BCD4;
+  --pink:#E91E8C;
+  --red:#E53935;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--navy);font-family:'Barlow',sans-serif;}
+
+/* ── APP SHELL ─────────────────────────────────────────────────────── */
+.app{width:100%;height:100%;display:flex;flex-direction:column;}
+
+/* ── NAV BAR ───────────────────────────────────────────────────────── */
+.nav-bar{background:rgba(5,4,106,0.95);display:none;align-items:center;gap:8px;padding:6px 12px;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.nav-arrow{background:rgba(255,255,255,0.1);border:none;color:white;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;}
+.nav-arrow:hover{background:rgba(255,255,255,0.25);}
+.nav-pills{display:flex;gap:5px;flex-wrap:nowrap;overflow-x:auto;flex:1;}
+.nav-pills::-webkit-scrollbar{display:none;}
+.nav-pill{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all 0.2s;font-family:'Barlow',sans-serif;line-height:1.2;text-align:center;}
+.nav-pill span{display:block;font-size:9px;font-weight:400;opacity:.7;}
+.nav-pill:hover{background:rgba(255,255,255,0.18);color:white;}
+.nav-pill.active{background:var(--yellow);color:var(--navy);border-color:var(--yellow);}
+.nav-counter{font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);white-space:nowrap;flex-shrink:0;}
+
+/* ── SLIDES WRAP ───────────────────────────────────────────────────── */
+.slides-wrap{width:100%;height:100%;flex:1;min-height:0;}
+.slide{display:none;width:100%;height:100%;flex-direction:column;overflow:hidden;}
+.slide.active{display:flex;}
+#slide-0{padding:0;}
+
+/* ── COVER ─────────────────────────────────────────────────────────── */
+.cover-hero{flex:1;min-height:0;background-image:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/NAUqcCjmvxYBzswB.webp');background-size:cover;background-position:center 20%;position:relative;}
+.cover-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,4,106,0.55) 0%,rgba(5,4,106,0.1) 40%,rgba(5,4,106,0.72) 100%);}
+.cover-meta{position:absolute;top:18px;left:20px;display:flex;flex-direction:column;gap:4px;}
+.cover-tag{font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,0.85);letter-spacing:1px;}
+.cover-title{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:white;line-height:1.05;text-shadow:0 2px 12px rgba(0,0,0,0.4);}
+.cover-title span{color:var(--yellow);}
+.cover-subtitle{font-size:15px;font-weight:600;color:rgba(255,255,255,0.9);margin-top:4px;}
+.cover-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:10px 12px;background:rgba(5,4,106,0.92);flex-shrink:0;}
+.cover-btn{border:none;border-radius:14px;padding:14px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform 0.15s,opacity 0.15s;}
+.cover-btn:hover{transform:scale(1.04);opacity:0.9;}
+.cover-btn-name{font-size:15px;font-weight:600;color:white;text-align:center;line-height:1.2;font-family:'Barlow',sans-serif;}
+.cover-btn-sub{font-size:11px;font-weight:400;color:rgba(255,255,255,0.85);text-align:center;line-height:1.2;font-family:'Barlow',sans-serif;}
+
+/* ── SECTION HEADER ────────────────────────────────────────────────── */
+.section-header{display:flex;align-items:center;gap:10px;padding:10px 16px;flex-shrink:0;border-bottom:2px solid rgba(255,255,255,0.08);}
+.sh-badge{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;white-space:nowrap;}
+.sh-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;flex:1;}
+.sh-right{display:flex;align-items:center;gap:10px;margin-left:auto;}
+.sh-time{font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,0.5);white-space:nowrap;}
+.sh-counter{font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);white-space:nowrap;}
+.lp-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Barlow',sans-serif;display:flex;align-items:center;gap:4px;}
+.lp-btn:hover{background:rgba(255,255,255,0.2);}
+
+/* ── SLIDE CONTENT ─────────────────────────────────────────────────── */
+.slide-content{flex:1;min-height:0;display:flex;flex-direction:column;padding:14px 16px;gap:10px;overflow:hidden;}
+
+/* ── PREV / NEXT ARROWS (inside slides) ────────────────────────────── */
+.slide-nav{display:flex;align-items:center;gap:12px;justify-content:center;flex-shrink:0;}
+.slide-nav-btn{background:rgba(255,255,255,0.12);border:none;color:white;padding:7px 20px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Barlow',sans-serif;transition:background 0.2s;}
+.slide-nav-btn:hover{background:rgba(255,255,255,0.25);}
+.slide-nav-count{font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);font-family:'Space Mono',monospace;}
+
+/* ── MODEL STRIP ───────────────────────────────────────────────────── */
+.model-strip{background:rgba(255,255,255,0.08);border-left:4px solid var(--yellow);border-radius:0 10px 10px 0;padding:12px 18px;font-size:18px;font-weight:400;color:white;flex-shrink:0;}
+.model-strip .rm-label{color:white;font-weight:600;}
+.model-strip .rm-example{color:#F1C405;font-weight:400;}
+.model-strip strong{color:var(--yellow);}
+
+/* ── WARM-UP: PICK YOUR SIDE ───────────────────────────────────────── */
+.pick-wrapper{flex:1;display:flex;gap:12px;min-height:0;}
+.pick-adj-panel{width:130px;flex-shrink:0;display:flex;flex-direction:column;gap:10px;justify-content:center;}
+.pick-adj-group{display:flex;flex-direction:column;gap:6px;}
+.pick-adj-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-family:'Space Mono',monospace;margin-bottom:2px;}
+.pick-adj-tag{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:6px 12px;font-size:16px;font-weight:700;color:white;text-align:center;font-family:'Barlow',sans-serif;letter-spacing:0.3px;transition:background 0.2s;}
+.pick-adj-tag:hover{background:rgba(255,255,255,0.22);}
+.pick-adj-divider{height:1px;background:rgba(255,255,255,0.15);margin:4px 0;}
+.pick-container{flex:1;display:flex;gap:10px;min-height:0;}
+.pick-side{flex:1;display:flex;flex-direction:column;border-radius:14px;overflow:hidden;}
+.pick-side img{width:100%;flex:1;object-fit:cover;min-height:0;}
+.pick-label{background:rgba(255,255,255,0.12);padding:10px 14px;font-size:22px;font-weight:700;text-align:center;font-family:'Barlow',sans-serif;color:white;letter-spacing:0.5px;flex-shrink:0;}
+.pick-teacher-badge{position:absolute;top:10px;left:10px;background:var(--red);color:white;font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;z-index:2;font-family:'Space Mono',monospace;}
+
+/* ── SLANGS ────────────────────────────────────────────────────────── */
+.slangs-grid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;min-height:0;}
+.slang-card{border-radius:16px;overflow:hidden;display:flex;flex-direction:column;}
+.slang-card img{width:100%;flex:1;object-fit:cover;min-height:0;}
+.slang-card-body{padding:12px 10px;flex-shrink:0;text-align:center;}
+.slang-expr{font-size:18px;font-weight:400;color:white;font-family:'Barlow',sans-serif;}
+.slang-def{display:none;}
+
+/* ── ENVELOPES ─────────────────────────────────────────────────────── */
+.envelopes-grid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;min-height:0;}
+.envelope-wrap{cursor:pointer;position:relative;overflow:hidden;}
+/* Envelope shape using SVG background */
+.env-body{
+  width:100%;height:100%;
+  background:linear-gradient(180deg,#e8bc55 0%,#d4a030 100%);
+  border-radius:0 0 10px 10px;
+  position:relative;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  overflow:hidden;
+  transition:box-shadow 0.3s;
+}
+/* V-fold diagonal lines from corners to center */
+.env-body::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(135deg,rgba(0,0,0,0.12) 0%,transparent 50%),
+    linear-gradient(225deg,rgba(0,0,0,0.12) 0%,transparent 50%),
+    linear-gradient(to bottom,transparent 50%,rgba(0,0,0,0.08) 50%);
+  pointer-events:none;
+}
+.envelope-wrap:hover .env-body{box-shadow:0 6px 20px rgba(0,0,0,0.5);}
+/* Triangular flap on top */
+.env-flap{
+  position:absolute;top:0;left:0;width:100%;
+  height:45%;
+  background:linear-gradient(170deg,#f5d060,#c8920a);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top center;
+  transition:opacity 0.3s ease;
+  z-index:3;
+  border-radius:10px 10px 0 0;
+}
+.envelope-wrap.open .env-flap{opacity:0;}
+/* Number centered */
+.env-num{
+  font-size:42px;font-weight:900;
+  color:#7a5200;
+  font-family:'Playfair Display',serif;
+  position:relative;z-index:1;
+  text-shadow:0 2px 4px rgba(0,0,0,0.2);
+}
+/* Photo floats out in front */
+.env-photo{
+  position:absolute;
+  top:50%;left:50%;
+  width:90%;height:85%;
+  object-fit:cover;
+  border-radius:8px;
+  transform:translate(-50%,150%) scale(0.8);
+  transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.2s,
+             box-shadow 0.5s ease 0.2s,
+             visibility 0s linear 0s;
+  z-index:5;
+  box-shadow:none;
+  visibility:hidden;
+}
+.envelope-wrap.open .env-photo{
+  transform:translate(-50%,-50%) scale(1.05);
+  box-shadow:0 16px 40px rgba(0,0,0,0.6);
+  visibility:visible;
+}
+.env-slang{display:none;}
+
+/* ── SLANG PRACTICE PANEL ─────────────────────────────────── */
+.sp-wrapper{flex:1;display:flex;gap:14px;min-height:0;}
+.sp-bank{width:155px;flex-shrink:0;display:flex;flex-direction:column;gap:8px;justify-content:center;}
+.sp-bank-title{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);font-family:'Space Mono',monospace;margin-bottom:4px;}
+.sp-bank-tag{background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.25);border-radius:10px;padding:10px 12px;font-size:15px;font-weight:700;color:white;text-align:center;font-family:'Barlow',sans-serif;line-height:1.2;}
+
+/* ── CELEBRITY CARDS ───────────────────────────────────────────────── */
+/* ── DECK OF CARDS — GRID + FLIP LAYOUT ───────────────────────── */
+.deck-stage{
+  flex:1;min-height:0;
+  display:flex;
+  flex-direction:row;
+  gap:0;
+  overflow:hidden;
+  width:100%;
+}
+/* Left zone: 4x3 grid of poker cards */
+.deck-pile{
+  width:55%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:10px 12px;
+  box-sizing:border-box;
+  gap:6px;
+}
+/* Number grid */
+.deck-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:repeat(4,1fr);
+  gap:10px;
+  width:100%;
+  flex:1;
+}
+/* Number button */
+.num-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:44px;
+  font-weight:900;
+  font-family:"Space Mono",monospace;
+  color:#ffffff;
+  background:var(--navy);
+  border:3px solid #ffffff;
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform 0.15s, border-color 0.2s, color 0.2s;
+  box-shadow:0 4px 14px rgba(0,0,0,0.4);
+  -webkit-appearance:none;
+  appearance:none;
+  text-shadow:0 2px 8px rgba(0,0,0,0.5);
+}
+.num-btn:hover:not(.used){
+  border-color:var(--yellow);
+  color:var(--yellow);
+  transform:scale(1.06);
+}
+.num-btn.used{
+  background:rgba(255,255,255,0.05);
+  border-color:rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.15);
+  cursor:default;
+  box-shadow:none;
+}
+.deck-reset-new{
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.3);
+  color:white;
+  padding:6px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:12px;
+  font-family:'Space Mono',monospace;
+  transition:background 0.2s;
+  flex-shrink:0;
+}
+.deck-reset-new:hover{background:rgba(255,255,255,0.22);}
+/* Right zone: revealed card */
+.deck-played{
+  width:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  border-left:1px solid rgba(255,255,255,0.08);
+}
+.deck-played-empty{
+  width:200px;height:280px;
+  border:2px dashed rgba(255,255,255,0.2);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.25);font-size:13px;
+  font-family:'Space Mono',monospace;
+  text-align:center;padding:16px;
+}
+@keyframes popIn{
+  0%{transform:scale(0.5);opacity:0;}
+  70%{transform:scale(1.05);}
+  100%{transform:scale(1);opacity:1;}
+}
+.card-face,.card-back-face{
+  position:absolute;inset:0;
+  border-radius:12px;
+  backface-visibility:hidden;
+}
+/* Card back: classic red/blue pattern */
+.card-back-face{
+  background:#1a3a8f;
+  border:3px solid white;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.card-back-face::before{
+  content:'';position:absolute;inset:4px;
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:8px;
+  background:repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.05) 0px,rgba(255,255,255,0.05) 4px,
+    transparent 4px,transparent 8px
+  );
+}
+.card-back-face::after{
+  content:'🂠';font-size:48px;position:relative;z-index:1;opacity:0.4;
+}
+/* Card front: celebrity photo */
+.card-face{
+  transform:rotateY(180deg);
+  background:white;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  border:3px solid white;
+}
+.card-face img{width:100%;flex:1;object-fit:cover;object-position:top;min-height:0;}
+.card-face .card-info{
+  padding:5px 6px;text-align:center;flex-shrink:0;
+  background:var(--navy);
+}
+.card-face .card-celeb-name{font-size:10px;font-weight:700;color:var(--yellow);font-family:'Barlow',sans-serif;}
+.card-face .card-celeb-job{font-size:9px;color:rgba(255,255,255,0.75);font-family:'Barlow',sans-serif;}
+/* Played card shown face-up in left area */
+.played-card-display{
+  width:250px;height:360px;
+  border-radius:14px;
+  background:white;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  border:4px solid var(--yellow);
+  box-shadow:0 8px 32px rgba(0,0,0,0.6);
+}
+.played-card-display img{width:100%;flex:1;object-fit:cover;object-position:top;min-height:0;}
+.played-card-display .pcd-info{
+  padding:10px 8px;text-align:center;flex-shrink:0;
+  background:var(--navy);
+}
+.played-card-display .pcd-name{font-size:17px;font-weight:700;color:var(--yellow);}
+.played-card-display .pcd-job{font-size:14px;color:rgba(255,255,255,0.8);}
+/* Reset button */
+.deck-reset{
+  position:absolute;bottom:10px;right:10px;
+  background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);
+  color:white;padding:5px 12px;border-radius:8px;cursor:pointer;
+  font-size:11px;font-family:'Space Mono',monospace;
+}
+.deck-reset:hover{background:rgba(255,255,255,0.25);}
+
+/* ── CAROUSEL ──────────────────────────────────────────────────────── */
+/* ── 3D COVERFLOW CAROUSEL ──────────────────────────────────────── */
+.coverflow-wrap{
+  flex:1;min-height:0;
+  display:flex;align-items:center;justify-content:center;
+  perspective:1200px;
+  position:relative;
+  overflow:visible;
+}
+.coverflow-track{
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+  display:flex;align-items:center;justify-content:center;
+}
+.cf-card{
+  position:absolute;
+  left:50%;top:50%;
+  margin-left:-100px; /* half of 200px */
+  margin-top:-140px; /* half of 280px */
+  width:200px;
+  height:280px;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,0.6);
+  transition:all 0.5s cubic-bezier(0.4,0,0.2,1);
+  cursor:pointer;
+  flex-shrink:0;
+}
+.cf-card img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:top center;
+  display:block;
+}
+.cf-card .cf-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(5,4,106,0.95) 0%,transparent 100%);
+  padding:30px 10px 10px;
+  text-align:center;
+}
+.cf-caption .cf-name{font-size:18px;font-weight:700;color:var(--yellow);font-family:'Playfair Display',serif;}
+.cf-caption .cf-job{font-size:14px;color:rgba(255,255,255,0.9);font-weight:600;}
+.cf-caption .cf-age{font-size:13px;color:rgba(255,255,255,0.75);font-weight:500;margin-top:2px;}
+
+/* ── MEET MY PEOPLE ────────────────────────────────────────────────── */
+.meet-grid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;min-height:0;}
+/* ── SPEAKING 3 WHEEL ─────────────────────────────────────────────────────── */
+.wheel-layout{display:flex;gap:24px;align-items:center;justify-content:center;flex:1;min-height:0;}
+.wheel-section{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.wheel-canvas-wrap{position:relative;width:340px;height:340px;flex-shrink:0;}
+#wheelCanvas{border-radius:50%;display:block;}
+.wheel-pointer{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:26px solid var(--yellow);filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));}
+.wheel-spin-btn{background:var(--yellow);color:var(--navy);font-family:'Barlow',sans-serif;font-size:18px;font-weight:900;letter-spacing:2px;border:none;border-radius:50px;padding:12px 40px;cursor:pointer;transition:transform 0.1s,box-shadow 0.1s;box-shadow:0 4px 16px rgba(241,196,5,0.4);}
+.wheel-spin-btn:hover{transform:scale(1.05);}
+.wheel-spin-btn:active{transform:scale(0.97);}
+.wheel-spin-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+.wheel-card-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;}
+.wheel-person-card{background:rgba(255,255,255,0.07);border:2px solid var(--yellow);border-radius:18px;overflow:hidden;width:280px;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;animation:fadeIn 0.35s ease;}
+.wheel-person-card:hover{transform:scale(1.03);box-shadow:0 8px 32px rgba(241,196,5,0.3);}
+.wheel-person-card img{width:100%;height:230px;object-fit:cover;object-position:top center;display:block;}
+.wheel-person-card-info{padding:16px 18px;background:rgba(5,4,106,0.7);}
+.wheel-person-card-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--yellow);}
+.wheel-person-card-job{font-size:16px;color:rgba(255,255,255,0.9);margin-top:5px;}
+.wheel-person-card-rel{font-size:15px;color:var(--teal);margin-top:5px;font-style:italic;}
+@keyframes fadeOutHint{0%{opacity:1;}70%{opacity:1;}100%{opacity:0;}}
+.wheel-card-hint{font-size:13px;color:rgba(255,255,255,0.6);margin-top:10px;text-align:center;animation:fadeOutHint 3s ease forwards;}
+.wheel-empty{color:rgba(255,255,255,0.55);font-size:18px;text-align:center;padding:20px;font-weight:600;}
+
+/* ── EXIT TICKET ───────────────────────────────────────────────────── */
+.reunion-container{flex:1;display:flex;gap:14px;min-height:0;align-items:center;}
+.reunion-photo-wrap{flex:1;border-radius:14px;overflow:visible;position:relative;min-width:0;display:flex;align-items:center;justify-content:center;margin-right:10px;}
+.reunion-photo-wrap img{width:100%;max-height:68vh;height:auto;object-fit:contain;display:block;border-radius:14px;}
+/* Floating info cards on photo */
+.rg-float-card{position:absolute;background:rgba(5,4,106,0.95);border:2px solid var(--yellow);border-radius:12px;padding:10px 14px;min-width:150px;max-width:190px;z-index:10;pointer-events:none;animation:fadeIn 0.25s ease;}
+.rg-float-card .rfc-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--yellow);line-height:1.1;}
+.rg-float-card .rfc-job{font-size:14px;color:rgba(255,255,255,0.9);margin-top:4px;}
+.rg-float-card .rfc-rel{font-size:13px;color:var(--teal);margin-top:4px;font-style:italic;}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.85);}to{opacity:1;transform:scale(1);}}
+/* Sidebar list */
+.rg-sidebar{width:400px;flex-shrink:0;display:grid;grid-template-columns:repeat(2,1fr);gap:5px 6px;align-content:center;padding:0;overflow:visible;}
+.rg-list-item{display:flex;align-items:center;gap:6px;cursor:pointer;padding:6px 8px;border-radius:10px;transition:background 0.15s;min-width:0;overflow:hidden;}
+.rg-list-item:hover:not(.rg-used){background:rgba(255,255,255,0.08);}
+.rg-list-item.rg-used{cursor:default;opacity:0.45;}
+.rg-list-num{width:30px;height:30px;border-radius:50%;background:var(--yellow);color:var(--navy);font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.3s,color 0.3s;}
+.rg-list-item.rg-used .rg-list-num{background:rgba(255,255,255,0.2);color:rgba(255,255,255,0.4);}
+.rg-list-name{font-size:16px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;}
+/* Info card */
+.rg-info-card{background:transparent;border:2px solid rgba(241,196,5,0.6);border-radius:16px;padding:16px 14px;display:none;flex-direction:column;gap:8px;margin-top:8px;}
+.rg-info-card.visible{display:flex;}
+.rip-num{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:1px;}
+.rip-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--yellow);line-height:1.1;}
+.rip-job{font-size:13px;color:rgba(255,255,255,0.9);margin-top:2px;}
+.rip-rel-label{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;margin-top:6px;}
+.rip-rel{font-size:12px;color:rgba(255,255,255,0.85);font-style:italic;}
+
+/* ── EXIT TICKET: LISTEN & COMPLETE ───────────────────────────────── */
+.et-layout{flex:1;display:flex;flex-direction:column;gap:8px;min-height:0;}
+/* TOP ROW: 4 cards side by side */
+.et-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:0 0 auto;}
+.et-card{background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.15);border-radius:14px;padding:10px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;}
+.et-card-num{position:absolute;top:8px;left:10px;width:26px;height:26px;border-radius:50%;background:var(--red);color:white;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;}
+.et-card-photo{width:100%;height:190px;object-fit:cover;object-position:center 10%;border-radius:10px;border:2px solid rgba(255,255,255,0.15);}
+.et-card-name{font-size:17px;font-weight:700;color:white;text-align:center;}
+.et-card-tag{font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;text-transform:uppercase;letter-spacing:0.5px;font-family:'Space Mono',monospace;}
+.et-card audio{width:100%;height:32px;border-radius:8px;accent-color:var(--red);}
+/* BOTTOM: table */
+.et-guide{flex:1;display:flex;flex-direction:column;gap:8px;min-height:0;}
+.et-guide-title{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.et-table-wrap{overflow-x:auto;border-radius:12px;border:1.5px solid rgba(255,255,255,0.12);flex:1;}
+.et-table{width:100%;border-collapse:collapse;font-family:'Barlow',sans-serif;height:100%;}
+.et-table thead tr{background:rgba(229,57,53,0.3);}
+.et-table th{padding:7px 10px;font-size:12px;font-weight:700;color:rgba(255,255,255,0.9);text-transform:uppercase;letter-spacing:0.5px;text-align:left;border-bottom:1.5px solid rgba(255,255,255,0.15);white-space:nowrap;}
+.et-table th:first-child{width:32px;text-align:center;}
+.et-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.08);transition:background 0.15s;}
+.et-table tbody tr:last-child{border-bottom:none;}
+.et-table tbody tr:hover{background:rgba(255,255,255,0.04);}
+.et-table td{padding:7px 10px;font-size:13px;color:rgba(255,255,255,0.9);}
+.et-table td:first-child{text-align:center;font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--red);}
+.et-blank{min-width:70px;border-bottom:1.5px solid rgba(255,255,255,0.25)!important;background:rgba(255,255,255,0.03);cursor:pointer;position:relative;transition:background 0.2s;}
+.et-blank.revealed{background:rgba(255,255,255,0.08);cursor:default;}
+.et-blank .et-answer{display:none;font-weight:600;color:#fff;}
+.et-blank.revealed .et-answer{display:inline;}
+.et-blank .et-dot{display:inline-block;width:18px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px;}
+.et-blank.revealed .et-dot{display:none;}
+.et-blank:not(.revealed):hover{background:rgba(255,255,255,0.07);}
+.et-guide-note{font-size:13px;color:rgba(255,255,255,0.65);background:rgba(241,196,5,0.08);border-left:3px solid var(--yellow);border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5;flex-shrink:0;}
+.et-guide-note strong{color:var(--yellow);}
+
+/* ── EXIT TICKET: MY PEOPLE ───────────────────────────────────────── */
+.mp-layout{flex:1;display:flex;gap:24px;min-height:0;align-items:stretch;}
+.mp-photo-col{width:38%;flex-shrink:0;border-radius:16px;overflow:hidden;}
+.mp-full-photo{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;}
+.mp-content-col{flex:1;display:flex;flex-direction:column;gap:16px;justify-content:center;min-width:0;}
+.mp-tagline{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:white;line-height:1.2;margin-bottom:4px;}
+.mp-model-card{background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.15);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;}
+.mp-model-name{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.mp-model-text{display:flex;flex-direction:column;gap:10px;}
+.mp-model-text p{font-size:16px;line-height:1.6;color:rgba(255,255,255,0.9);}
+.mp-model-text strong{color:var(--yellow);font-weight:700;}
+.mp-slangs{background:rgba(255,255,255,0.05);border-radius:12px;padding:12px 16px;}
+.mp-slang-label{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:10px;}
+.mp-slang-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.mp-slang-tag{background:rgba(229,57,53,0.2);border:1.5px solid rgba(229,57,53,0.4);color:white;padding:6px 14px;border-radius:20px;font-size:14px;font-weight:600;font-family:'Barlow',sans-serif;}
+.mp-listen-note{font-size:13px;color:rgba(255,255,255,0.7);background:rgba(241,196,5,0.08);border-left:3px solid var(--yellow);border-radius:0 8px 8px 0;padding:9px 14px;line-height:1.5;font-family:'Barlow',sans-serif;}
+
+/* ── HOMEWORK ──────────────────────────────────────────────────────── */
+.hw-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;flex:1;max-height:500px;}
+.hw-card{border-radius:14px;padding:28px 32px;display:flex;flex-direction:column;justify-content:flex-start;border:2px solid rgba(255,255,255,0.12);min-height:140px;}
+.hw-card-label{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;opacity:0.85;}
+.hw-card-page{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:white;line-height:1.1;margin-bottom:10px;}
+.hw-card-desc{font-size:15px;color:rgba(255,255,255,0.75);line-height:1.5;}
+.hw-footer{margin-top:14px;text-align:center;padding:20px 32px;font-size:17px;color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.08);border-radius:12px;border:1px solid rgba(255,255,255,0.15);}
+.hw-footer strong{color:var(--yellow);}
+.hw-centered{display:flex;flex-direction:column;gap:14px;justify-content:center;flex:1;min-height:0;padding-top:20px;padding-bottom:20px;}
+.hw-centered .hw-grid,.hw-centered .hw-footer{max-width:860px;width:100%;margin-left:auto;margin-right:auto;}
+
+/* ── LESSON PLAN MODAL ─────────────────────────────────────────────── */
+#lpOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;padding:20px;}
+#lpOverlay.open{display:flex;}
+#lpModal{background:#0a0960;border:1px solid rgba(255,255,255,0.15);border-radius:16px;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;padding:24px;}
+.lp-modal-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.lp-modal-badge{padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1px;font-family:'Space Mono',monospace;}
+.lp-modal-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;flex:1;}
+.lp-modal-time{font-size:12px;color:rgba(255,255,255,0.5);font-family:'Space Mono',monospace;}
+.lp-close{background:none;border:none;color:white;font-size:20px;cursor:pointer;padding:4px 8px;border-radius:6px;}
+.lp-close:hover{background:rgba(255,255,255,0.1);}
+.lp-activity{font-size:14px;line-height:1.6;margin-bottom:16px;color:rgba(255,255,255,0.9);}
+.lp-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.lp-card{background:rgba(255,255,255,0.07);border-radius:10px;padding:12px;}
+.lp-card-title{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--teal);margin-bottom:6px;text-transform:uppercase;font-family:'Space Mono',monospace;}
+.lp-card-body{font-size:12px;line-height:1.5;color:rgba(255,255,255,0.85);}
+.lp-pacing{background:rgba(241,196,5,0.1);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:12px;border-left:3px solid var(--yellow);}
+.lp-pacing-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--yellow);margin-bottom:4px;text-transform:uppercase;font-family:'Space Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- NAV BAR -->
+<div class="nav-bar">
+  <button class="nav-arrow" onclick="goHome()">◀</button>
+  <div class="nav-pills">
+    <button class="nav-pill" id="nb-1" onclick="goToSlide(1)">Warm-up</button>
+    <button class="nav-pill" id="nb-2" onclick="goToSlide(2)">Slangs</button>
+    <button class="nav-pill" id="nb-3" onclick="goToSlide(3)">Slangs Practice</button>
+    <button class="nav-pill" id="nb-4" onclick="goToSlide(4)">Meet &amp; Greet</button>
+    <button class="nav-pill" id="nb-5" onclick="goToSlide(5)">Career Spot</button>
+      <button class="nav-pill" id="nb-6" onclick="goToSlide(6)">Listening</button>
+    <button class="nav-pill" id="nb-7" onclick="goToSlide(7)">Exit Ticket</button>
+    <button class="nav-pill" id="nb-8" onclick="goToSlide(8)">Homework</button>
+  </div>
+  <span class="nav-counter" id="navCounter">1 / 8</span>
+</div>
+
+<!-- LESSON PLAN MODAL -->
+<div id="lpOverlay">
+  <div id="lpModal">
+    <div class="lp-modal-header">
+      <span class="lp-modal-badge" id="lpBadge"></span>
+      <span class="lp-modal-title" id="lpTitle"></span>
+      <span class="lp-modal-time" id="lpTime"></span>
+      <button class="lp-close" onclick="closeLP()">✕</button>
+    </div>
+    <div class="lp-activity" id="lpActivity"></div>
+    <div class="lp-cards">
+      <div class="lp-card"><div class="lp-card-title">Learning Goal</div><div class="lp-card-body" id="lpGoal"></div></div>
+      <div class="lp-card"><div class="lp-card-title">Teacher Cues</div><div class="lp-card-body" id="lpCues"></div></div>
+      <div class="lp-card"><div class="lp-card-title">Do\'s</div><div class="lp-card-body" id="lpDos"></div></div>
+      <div class="lp-card"><div class="lp-card-title">Don\'ts</div><div class="lp-card-body" id="lpDonts"></div></div>
+    </div>
+    <div class="lp-pacing"><div class="lp-pacing-label">Pacing Note</div><div id="lpPacing"></div></div>
+  </div>
+</div>
+
+<!-- SLIDES WRAP -->
+<div class="slides-wrap">
+
+  <!-- SLIDE 0: COVER -->
+  <div class="slide active" id="slide-0">
+    <div class="cover-hero">
+      <div class="cover-overlay"></div>
+      <div class="cover-meta">
+        <span class="cover-tag">WE GO · SENIORS · LEVEL 1</span>
+        <div class="cover-title" style="color:white;">Unit 2</div>
+        <div class="cover-title"><span>Relationships</span></div>
+        <div class="cover-subtitle">SESSION 2 · SLANGS · SPEAKING PRACTICE</div>
+      </div>
+    </div>
+    <div class="cover-buttons">
+      <button class="cover-btn" style="background:var(--purple)" onclick="goToSlide(1)" data-manus_clickable="true" data-manus_click_id="1">
+        <span class="cover-btn-name">Warm-up</span>
+        <span class="cover-btn-sub">Pick Your Side</span>
+      </button>
+      <button class="cover-btn" style="background:var(--orange)" onclick="goToSlide(2)" data-manus_clickable="true" data-manus_click_id="2">
+        <span class="cover-btn-name">Vocabulary</span>
+        <span class="cover-btn-sub">Slang or Not Slang?</span>
+      </button>
+      <button class="cover-btn" style="background:var(--yellow);color:var(--navy)" onclick="goToSlide(3)" data-manus_clickable="true" data-manus_click_id="3">
+        <span class="cover-btn-name" style="color:var(--navy)">Vocabulary Practice</span>
+        <span class="cover-btn-sub" style="color:rgba(5,4,106,0.75)">Which Slang Is It?</span>
+      </button>
+      <button class="cover-btn" style="background:var(--blue)" onclick="goToSlide(4)" data-manus_clickable="true" data-manus_click_id="4">
+        <span class="cover-btn-name">Speaking 1</span>
+        <span class="cover-btn-sub">Meet &amp; Greet</span>
+      </button>
+      <button class="cover-btn" style="background:var(--teal)" onclick="goToSlide(5)" data-manus_clickable="true" data-manus_click_id="5">
+        <span class="cover-btn-name">Speaking 2</span>
+        <span class="cover-btn-sub">Career Spotlight</span>
+      </button>
+      <button class="cover-btn" style="background:var(--pink)" onclick="goToSlide(6)" data-manus_clickable="true" data-manus_click_id="6">
+        <span class="cover-btn-name">Listening</span>
+        <span class="cover-btn-sub">Tune In</span>
+      </button>
+      <button class="cover-btn" style="background:var(--red)" onclick="goToSlide(7)" data-manus_clickable="true" data-manus_click_id="7">
+        <span class="cover-btn-name">Exit Ticket</span>
+        <span class="cover-btn-sub">My People</span>
+      </button>
+      <button class="cover-btn" style="background:var(--green)" onclick="goToSlide(8)" data-manus_clickable="true" data-manus_click_id="8">
+        <span class="cover-btn-name">Homework</span>
+        <span class="cover-btn-sub">Book Pages</span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- SLIDE 1: WARM-UP -->
+  <div class="slide" id="slide-1">
+    <div class="section-header">
+      <span class="sh-badge" style="background:var(--purple);color:white;">WARM-UP</span>
+      <span class="sh-title">Pick Your Side</span>
+      <div class="sh-right">
+        <span class="sh-time">7 min</span>
+        <button class="lp-btn" onclick="openLP(1)">📄 Lesson Plan</button>
+        <span class="sh-counter" id="pickCounter">1 / 10</span>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="model-strip"><span class="rm-label">Response model:</span> <span class="rm-example">"I prefer ice cream because it is delicious."</span></div>
+      <div class="pick-wrapper">
+        <div class="pick-adj-panel" id="pickAdjPanel"><div class="pick-adj-group"><div class="pick-adj-label">Beach</div><div class="pick-adj-tag">warm</div><div class="pick-adj-tag">wet</div><div class="pick-adj-tag">fun</div></div><div class="pick-adj-divider"></div><div class="pick-adj-group"><div class="pick-adj-label">Mountains</div><div class="pick-adj-tag">cold</div><div class="pick-adj-tag">quiet</div><div class="pick-adj-tag">high</div></div></div>
+        <div class="pick-container" id="pickContainer">
+    <div class="pick-side">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/UsIZqHCHvNfjcSFM.jpg" alt="Beach">
+      <div class="pick-label">Beach</div>
+    </div>
+    <div class="pick-side">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/StOvgIyauAnqiuIS.jpg" alt="Mountains">
+      <div class="pick-label">Mountains</div>
+    </div></div>
+      </div>
+      <div class="slide-nav">
+        <button class="slide-nav-btn" onclick="pickPrev()">◀ Prev</button>
+        <span class="slide-nav-count" id="pickRound">Round 1 of 10</span>
+        <button class="slide-nav-btn" onclick="pickNext()">Next ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: SLANGS -->
+  <div class="slide" id="slide-2">
+    <div class="section-header">
+      <span class="sh-badge" style="background:var(--orange);color:white;">SLANGS</span>
+      <span class="sh-title">Slang or Not Slang?</span>
+      <div class="sh-right">
+        <span class="sh-time">8 min</span>
+        <button class="lp-btn" onclick="openLP(2)">📄 Lesson Plan</button>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="slangs-grid">
+        <div class="slang-card" style="background:rgba(0,87,255,0.25)">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/NEQeyTJGFnwGcnff.jpg" alt="introduction">
+          <div class="slang-card-body">
+            <div class="slang-expr">"I'm ___ and this is ___."</div>
+            <div class="slang-def">Use this to introduce someone to others in a friendly way.</div>
+          </div>
+        </div>
+        <div class="slang-card" style="background:rgba(123,47,190,0.3)">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/DmERHmVapVOdhang.jpg" alt="bestie">
+          <div class="slang-card-body">
+            <div class="slang-expr">Bestie</div>
+            <div class="slang-def">Your very best friend — the person you are closest to.</div>
+          </div>
+        </div>
+        <div class="slang-card" style="background:rgba(0,188,212,0.25)">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/iRhlixAwMnDxKtCN.png" alt="better half">
+          <div class="slang-card-body">
+            <div class="slang-expr">My better half</div>
+            <div class="slang-def">Your romantic partner — your husband, wife or significant other.</div>
+          </div>
+        </div>
+        <div class="slang-card" style="background:rgba(255,107,53,0.25)">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/rbzFoDlEfqlByGBE.jpg" alt="plus one">
+          <div class="slang-card-body">
+            <div class="slang-expr">My plus one</div>
+            <div class="slang-def">The person you bring to an event — your date or companion.</div>
+          </div>
+        </div>
+        <div class="slang-card" style="background:rgba(233,30,140,0.25)">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/cmhxLNvAHPsSozgq.jpg" alt="partner in crime">
+          <div class="slang-card-body">
+            <div class="slang-expr">My partner in crime</div>
+            <div class="slang-def">Your fun accomplice — the friend you do everything with.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: SLANGS PRACTICE — ENVELOPES -->
+  <div class="slide" id="slide-3">
+    <div class="section-header">
+      <span class="sh-badge" style="background:var(--yellow);color:var(--navy);">SLANGS PRACTICE</span>
+      <span class="sh-title">Which Slang Is It?</span>
+      <div class="sh-right">
+        <span class="sh-time">8 min</span>
+        <button class="lp-btn" onclick="openLP(3)">📄 Lesson Plan</button>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="model-strip"><span class="rm-label">Response model:</span> <span class="rm-example">"The slang is <em>my bestie</em>. For example: she is my bestie."</span></div>
+      <div class="sp-wrapper">
+        <div class="sp-bank">
+          <div class="sp-bank-title">Slang Bank</div>
+          <div class="sp-bank-tag">Bestie</div>
+          <div class="sp-bank-tag">My plus one</div>
+          <div class="sp-bank-tag">My partner in crime</div>
+          <div class="sp-bank-tag">My better half</div>
+        </div>
+        <div class="envelopes-grid" id="envelopesGrid">
+    <div class="envelope-wrap" id="env-1" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">1</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/RDgLIeSMwHOUNKYi.jpg" alt="envelope 1">
+      <div class="env-slang">Bestie</div>
+    </div>
+    <div class="envelope-wrap" id="env-2" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">2</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/dJNuWftPnoGzEjXK.jpg" alt="envelope 2">
+      <div class="env-slang">My plus one</div>
+    </div>
+    <div class="envelope-wrap" id="env-3" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">3</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/aKAYaxoyqnbDnNAJ.jpg" alt="envelope 3">
+      <div class="env-slang">My partner in crime</div>
+    </div>
+    <div class="envelope-wrap" id="env-4" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">4</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/hNUnUWRsfFhDtLRl.jpg" alt="envelope 4">
+      <div class="env-slang">My better half</div>
+    </div>
+    <div class="envelope-wrap" id="env-5" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">5</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/qtisvvuQgtdGZoZL.jpg" alt="envelope 5">
+      <div class="env-slang">My better half</div>
+    </div>
+    <div class="envelope-wrap" id="env-6" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">6</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/PRQimPdCfkTMhugx.jpg" alt="envelope 6">
+      <div class="env-slang">My partner in crime</div>
+    </div>
+    <div class="envelope-wrap" id="env-7" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">7</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/KVfMhAIURWaNHKUA.jpg" alt="envelope 7">
+      <div class="env-slang">Bestie</div>
+    </div>
+    <div class="envelope-wrap" id="env-8" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">8</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/gItocuEXAyLGIbyI.jpg" alt="envelope 8">
+      <div class="env-slang">Bestie</div>
+    </div>
+    <div class="envelope-wrap" id="env-9" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">9</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/ZbykkGSSQMUVDkMg.jpg" alt="envelope 9">
+      <div class="env-slang">My plus one</div>
+    </div>
+    <div class="envelope-wrap" id="env-10" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">10</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/RBSVCROUHJigicJD.jpg" alt="envelope 10">
+      <div class="env-slang">My better half</div>
+    </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: SPEAKING PRESENTATION -->
+  <div class="slide" id="slide-4">
+    <div class="section-header">
+      <span class="sh-badge" style="background:var(--blue);color:white;">SPEAKING 1</span>
+      <span class="sh-title">Meet &amp; Greet</span>
+      <div class="sh-right">
+        <span class="sh-time">7 min</span>
+        <button class="lp-btn" onclick="openLP(4)">📄 Lesson Plan</button>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="model-strip" style="display:flex;flex-direction:column;gap:8px;padding:10px 16px;">
+        <div><span class="rm-label">Student A:</span> <span class="rm-example">"I am Leonardo DiCaprio. I am an actor. And this is Salma Hayek. She is an actress."</span></div>
+        <div><span class="rm-label">Student B:</span> <span class="rm-example">"I am Salma Hayek. I am an actress. And this is Pelé. He is a soccer player."</span></div>
+      </div>
+      <div class="deck-stage" id="deckStage">
+        <div class="deck-played" id="deckPlayed"><div class="deck-played-empty">Click a number<br>to reveal</div></div>
+        <div class="deck-pile" id="deckPile"><div class="deck-grid"><button class="num-btn" id="pcard-0" aria-label="Billie Eilish" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">1</button><button class="num-btn" id="pcard-1" aria-label="Karol G" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">2</button><button class="num-btn" id="pcard-2" aria-label="Nicki Minaj" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">3</button><button class="num-btn" id="pcard-3" aria-label="Neymar Jr." style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">4</button><button class="num-btn" id="pcard-4" aria-label="Dua Lipa" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">5</button><button class="num-btn" id="pcard-5" aria-label="Ryan Reynolds" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">6</button><button class="num-btn" id="pcard-6" aria-label="Tom Holland" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">7</button><button class="num-btn" id="pcard-7" aria-label="J Balvin" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">8</button><button class="num-btn" id="pcard-8" aria-label="Harry Styles" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">9</button><button class="num-btn" id="pcard-9" aria-label="Selena Gomez" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">10</button><button class="num-btn" id="pcard-10" aria-label="Brad Pitt" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">11</button><button class="num-btn" id="pcard-11" aria-label="Justin Timberlake" style="background: rgb(5, 4, 106) !important; color: rgb(255, 255, 255) !important; border: 3px solid rgb(255, 255, 255) !important;">12</button></div><button class="deck-reset-new">↺ Reset</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: SPEAKING 3 — CAROUSEL -->
+  <div class="slide" id="slide-5">
+    <div class="section-header">
+      <span class="sh-badge" style="background:var(--teal);color:var(--navy);">SPEAKING 2</span>
+      <span class="sh-title">Career Spot</span>
+      <div class="sh-right">
+        <span class="sh-time">7 min</span>
+        <button class="lp-btn" onclick="openLP(5)">📄 Lesson Plan</button>
+        <span class="sh-counter" id="carouselCounter">1 / 11</span>
+      </div>
+    </div>
+    <div class="slide-content" style="flex-direction:row;gap:0;padding:8px 16px;align-items:stretch;overflow:hidden;">
+      <!-- LEFT COLUMN: Questions model (42% width) -->
+      <div style="width:42%;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;padding-right:20px;border-right:2px solid rgba(255,255,255,0.15);overflow:hidden;">
+        <!-- 1ST PERSON block -->
+        <div style="margin-bottom:12px;">
+          <div style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">1st Person</div>
+          <div style="margin-bottom:5px;">
+            <div style="font-size:14px;color:rgba(255,255,255,0.6);font-style:italic;line-height:1.3;">"What's your name?"</div>
+            <div style="font-size:16px;color:var(--yellow);font-weight:600;line-height:1.3;">"My name is Maria."</div>
+          </div>
+          <div style="margin-bottom:5px;">
+            <div style="font-size:14px;color:rgba(255,255,255,0.6);font-style:italic;line-height:1.3;">"What do you do?"</div>
+            <div style="font-size:16px;color:var(--yellow);font-weight:600;line-height:1.3;">"I'm a teacher."</div>
+          </div>
+          <div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.6);font-style:italic;line-height:1.3;">"How old are you?"</div>
+            <div style="font-size:16px;color:var(--yellow);font-weight:600;line-height:1.3;">"I'm 45 years old."</div>
+          </div>
+        </div>
+        <!-- Divider -->
+        <div style="height:1px;background:rgba(255,255,255,0.18);margin-bottom:12px;"></div>
+        <!-- 3RD PERSON block -->
+        <div>
+          <div style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">3rd Person</div>
+          <div style="margin-bottom:5px;">
+            <div style="font-size:14px;color:rgba(255,255,255,0.6);font-style:italic;line-height:1.3;">"What's her name?"</div>
+            <div style="font-size:16px;color:var(--yellow);font-weight:600;line-height:1.3;">"Her name is Maria."</div>
+          </div>
+          <div style="margin-bottom:5px;">
+            <div style="font-size:14px;color:rgba(255,255,255,0.6);font-style:italic;line-height:1.3;">"What does she do?"</div>
+            <div style="font-size:16px;color:var(--yellow);font-weight:600;line-height:1.3;">"She's a teacher."</div>
+          </div>
+          <div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.6);font-style:italic;line-height:1.3;">"How old is she?"</div>
+            <div style="font-size:16px;color:var(--yellow);font-weight:600;line-height:1.3;">"She's 45 years old."</div>
+          </div>
+        </div>
+      </div>
+      <!-- RIGHT COLUMN: Coverflow + Nav (58% width) -->
+      <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;padding-left:0;">
+        <div class="coverflow-wrap" id="coverflowWrap" style="height:min(340px,calc(100vh - 180px));flex:none;overflow:hidden;">
+          <div class="coverflow-track" id="coverflowTrack">
+    <div class="cf-card" id="cf-0" onclick="cfGoTo(0)" style="transform: translateX(0px) translateZ(0px) rotateY(0deg) scale(1.35); opacity: 1; filter: blur(0px); z-index: 11;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/dVLfJUIUmYjoZvdF.jpg" alt="Sofia">
+      <div class="cf-caption">
+        <div class="cf-name">Sofia</div>
+        <div class="cf-job">Doctor</div>
+        <div class="cf-age">32 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-1" onclick="cfGoTo(1)" style="transform: translateX(110px) translateZ(-80px) rotateY(-18deg) scale(0.82); opacity: 0.75; filter: blur(1px); z-index: 10;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/awzNhXXgWyrivgca.jpg" alt="Marco">
+      <div class="cf-caption">
+        <div class="cf-name">Marco</div>
+        <div class="cf-job">Chef</div>
+        <div class="cf-age">28 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-2" onclick="cfGoTo(2)" style="transform: translateX(220px) translateZ(-160px) rotateY(-36deg) scale(0.65); opacity: 0.5; filter: blur(2px); z-index: 9;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/TckiGwfexClRLkql.jpg" alt="Emily">
+      <div class="cf-caption">
+        <div class="cf-name">Emily</div>
+        <div class="cf-job">Teacher</div>
+        <div class="cf-age">41 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-3" onclick="cfGoTo(3)" style="transform: translateX(330px) translateZ(-240px) rotateY(-54deg) scale(0.5); opacity: 0.3; filter: blur(3px); z-index: 8;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/cWMjrZFxdQRofefL.jpg" alt="James">
+      <div class="cf-caption">
+        <div class="cf-name">James</div>
+        <div class="cf-job">Firefighter</div>
+        <div class="cf-age">35 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-4" onclick="cfGoTo(4)" style="transform: translateX(440px) translateZ(-320px) rotateY(-72deg) scale(0.5); opacity: 0.3; filter: blur(3px); z-index: 7;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/hxYtAUTNdGuWxoiN.jpg" alt="Laura">
+      <div class="cf-caption">
+        <div class="cf-name">Laura</div>
+        <div class="cf-job">Nurse</div>
+        <div class="cf-age">29 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-5" onclick="cfGoTo(5)" style="transform: translateX(550px) translateZ(-400px) rotateY(-90deg) scale(0.5); opacity: 0.3; filter: blur(3px); z-index: 6;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/FKvxGEogvEDfTfiW.jpg" alt="Carlos">
+      <div class="cf-caption">
+        <div class="cf-name">Carlos</div>
+        <div class="cf-job">Architect</div>
+        <div class="cf-age">47 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-6" onclick="cfGoTo(6)" style="transform: translateX(660px) translateZ(-480px) rotateY(-108deg) scale(0.5); opacity: 0.3; filter: blur(3px); z-index: 5;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/lJDGQwNIhGOVlAFN.jpg" alt="Diana">
+      <div class="cf-caption">
+        <div class="cf-name">Diana</div>
+        <div class="cf-job">Singer</div>
+        <div class="cf-age">26 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-7" onclick="cfGoTo(7)" style="transform: translateX(770px) translateZ(-560px) rotateY(-126deg) scale(0.5); opacity: 0.3; filter: blur(3px); z-index: 4;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/fnOVMXyRNvUjFtJS.jpg" alt="Ryan">
+      <div class="cf-caption">
+        <div class="cf-name">Ryan</div>
+        <div class="cf-job">Pilot</div>
+        <div class="cf-age">38 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-8" onclick="cfGoTo(8)" style="transform: translateX(880px) translateZ(-640px) rotateY(-144deg) scale(0.5); opacity: 0.3; filter: blur(3px); z-index: 3;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/kPtikbLuLxSiUpBr.jpg" alt="Ana">
+      <div class="cf-caption">
+        <div class="cf-name">Ana</div>
+        <div class="cf-job">Police officer</div>
+        <div class="cf-age">33 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-9" onclick="cfGoTo(9)" style="transform: translateX(990px) translateZ(-720px) rotateY(-162deg) scale(0.5); opacity: 0.3; filter: blur(3px); z-index: 2;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/AJKNGpgsDawiDDBn.jpg" alt="Tom">
+      <div class="cf-caption">
+        <div class="cf-name">Tom</div>
+        <div class="cf-job">Mechanic</div>
+        <div class="cf-age">52 years old</div>
+      </div>
+    </div>
+    <div class="cf-card" id="cf-10" onclick="cfGoTo(10)" style="transform: translateX(1100px) translateZ(-800px) rotateY(-180deg) scale(0.5); opacity: 0.3; filter: blur(3px); z-index: 1;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/ecglcFGjMEcEEgQT.jpg" alt="Lisa">
+      <div class="cf-caption">
+        <div class="cf-name">Lisa</div>
+        <div class="cf-job">Dentist</div>
+        <div class="cf-age">44 years old</div>
+      </div>
+    </div></div>
+        </div>
+        <div class="slide-nav" style="flex-shrink:0;">
+          <button class="slide-nav-btn" onclick="cfPrev()">◀ Prev</button>
+          <span class="slide-nav-count" id="carouselCount">1 / 11</span>
+          <button class="slide-nav-btn" onclick="cfNext()">Next ▶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- SLIDE 6: TUNE IN — LISTEN & COMPLETE -->
+  <div class="slide" id="slide-6">
+    <div class="section-header">
+      <span class="sh-badge" style="background:var(--pink);color:white;">LISTENING</span>
+      <span class="sh-title">Tune In</span>
+      <div class="sh-right">
+        <span class="sh-time">7 min</span>
+        <button class="lp-btn" onclick="openLP(6)">📄 Lesson Plan</button>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="et-layout">
+        <!-- TOP: 4 audio cards in a row -->
+        <div class="et-row">
+          <div class="et-card">
+            <div class="et-card-num">1</div>
+            <img src="char_anna.jpg" class="et-card-photo" alt="Anna">
+            <div class="et-card-name">Anna</div>
+            <span class="et-card-tag" style="background:rgba(233,30,140,0.25);color:#f48fb1;">female</span>
+            <audio controls="" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/yMZzVczPnVdtuutD.wav"></audio>
+          </div>
+          <div class="et-card">
+            <div class="et-card-num">2</div>
+            <img src="char_mark.jpg" class="et-card-photo" alt="Mark">
+            <div class="et-card-name">Mark</div>
+            <span class="et-card-tag" style="background:rgba(0,87,255,0.25);color:#90caf9;">male</span>
+            <audio controls="" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/pXPugEYHBERzfhPi.wav"></audio>
+          </div>
+          <div class="et-card">
+            <div class="et-card-num">3</div>
+            <img src="char_linda.jpg" class="et-card-photo" alt="Linda">
+            <div class="et-card-name">Linda</div>
+            <span class="et-card-tag" style="background:rgba(233,30,140,0.25);color:#f48fb1;">female</span>
+            <audio controls="" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/ycOTTKZFCclzoCyr.wav"></audio>
+          </div>
+          <div class="et-card">
+            <div class="et-card-num">4</div>
+            <img src="char_chris.jpg" class="et-card-photo" alt="Chris">
+            <div class="et-card-name">Chris</div>
+            <span class="et-card-tag" style="background:rgba(0,87,255,0.25);color:#90caf9;">male</span>
+            <audio controls="" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/FKRVZRONhlpopqJY.wav"></audio>
+          </div>
+        </div>
+        <!-- BOTTOM: Listening guide table -->
+        <div class="et-guide">
+          <div class="et-guide-title">Listening Guide</div>
+          <div class="et-table-wrap">
+            <table class="et-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Speaker</th>
+                  <th>Age</th>
+                  <th>Job</th>
+                  <th>Friend</th>
+                  <th>Age</th>
+                  <th>Job</th>
+                  <th>Slang</th>
+                  <th>Relationship</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Anna</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">34</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Nurse</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Peter</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">29</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Chef</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Bestie</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Best friend</span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Mark</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">41</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Firefighter</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Sophie</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">38</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Teacher</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Better half</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Fiancée</span></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Linda</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">45</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Lawyer</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Tom</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">50</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Engineer</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Partner in crime</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Colleague</span></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Chris</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">27</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Pilot</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Diana</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">31</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Doctor</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Plus one</span></td>
+                  <td class="et-blank" onclick="revealCell(this)"><span class="et-dot"></span><span class="et-answer">Neighbor</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="et-guide-note">Listen carefully and fill in each column. Use the slangs: <strong>bestie · better half · partner in crime · plus one</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: EXIT TICKET — MY PEOPLE -->
+  <div class="slide" id="slide-7">
+    <div class="section-header">
+      <span class="sh-badge" style="background:var(--red);color:white;">EXIT TICKET</span>
+      <span class="sh-title">My People</span>
+      <div class="sh-right">
+        <span class="sh-time">8 min</span>
+        <button class="lp-btn" onclick="openLP(7)">📄 Lesson Plan</button>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="mp-layout">
+
+        <!-- LEFT: Photo -->
+        <div class="mp-photo-col">
+          <img src="char_linda.jpg" class="mp-full-photo" alt="Linda">
+        </div>
+
+        <!-- RIGHT: Instruction + model text + slangs -->
+        <div class="mp-content-col">
+          <div class="mp-tagline">Now, tell us about your people!</div>
+          <div class="mp-model-card">
+            <div class="mp-model-name">Linda, 45 — Lawyer</div>
+            <div class="mp-model-text">
+              <p>Hi! My name is <strong>Linda</strong>. I’m <strong>45</strong> years old and I am a <strong>lawyer</strong>.</p>
+              <p>My <strong>better half</strong> is my husband. His name is <strong>Carlos</strong>, he is <strong>48</strong> years old and he is a <strong>doctor</strong>.</p>
+              <p>And my <strong>partner in crime</strong> is my sister. Her name is <strong>Sara</strong>, she is <strong>42</strong> years old and she is a <strong>teacher</strong>.</p>
+            </div>
+          </div>
+          <div class="mp-slangs">
+            <div class="mp-slang-label">Use these slangs:</div>
+            <div class="mp-slang-tags">
+              <span class="mp-slang-tag">bestie</span>
+              <span class="mp-slang-tag">better half</span>
+              <span class="mp-slang-tag">partner in crime</span>
+              <span class="mp-slang-tag">plus one</span>
+            </div>
+          </div>
+          <div class="mp-listen-note">👂 Listen carefully — your teacher will ask questions about your classmates’ people!</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: HOMEWORK -->
+  <div class="slide" id="slide-8">
+    <div class="section-header">
+      <span class="sh-badge" style="background:var(--green);color:var(--navy);">HOMEWORK</span>
+      <span class="sh-title">Daily Homework</span>
+      <div class="sh-right">
+        <button class="lp-btn" onclick="openLP(8)">📄 Lesson Plan</button>
+      </div>
+    </div>
+    <div class="slide-content hw-centered">
+      <div class="hw-grid">
+        <div class="hw-card" style="background:rgba(0,87,255,0.25);border-color:rgba(0,87,255,0.5);">
+          <div class="hw-card-label" style="color:rgba(100,180,255,0.9);">Speaking</div>
+          <div class="hw-card-page">p. 39 – Ex. A</div>
+          <div class="hw-card-desc">Personal information questions.</div>
+        </div>
+        <div class="hw-card" style="background:rgba(0,188,212,0.2);border-color:rgba(0,188,212,0.5);">
+          <div class="hw-card-label" style="color:rgba(0,220,240,0.9);">Grammar – Exercise F</div>
+          <div class="hw-card-page">p. 43 – Ex. F</div>
+          <div class="hw-card-desc">Verb To Be / Possessives practice.</div>
+        </div>
+        <div class="hw-card" style="background:rgba(123,47,190,0.25);border-color:rgba(123,47,190,0.5);">
+          <div class="hw-card-label" style="color:rgba(200,150,255,0.9);">Vocabulary – Exercise E</div>
+          <div class="hw-card-page">p. 42 – Ex. E</div>
+          <div class="hw-card-desc">Relationships and occupations.</div>
+        </div>
+        <div class="hw-card" style="background:rgba(0,200,83,0.15);border-color:rgba(0,200,83,0.4);">
+          <div class="hw-card-label" style="color:rgba(100,230,150,0.9);">Review</div>
+          <div class="hw-card-page">Slangs</div>
+          <div class="hw-card-desc">Review today's slangs and use them in a sentence.</div>
+        </div>
+      </div>
+      <div class="hw-footer">Complete <strong>all exercises</strong> to consolidate today's vocabulary and speaking practice.</div>
+    </div>
+  </div>
+
+</div><!-- end slides-wrap -->
+</div><!-- end app -->
+
+<script>
+// ─── DATA ────────────────────────────────────────────────────────────────────
+const PICK_ROUNDS = [
+  {a:'Beach',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/UsIZqHCHvNfjcSFM.jpg',b:'Mountains',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/StOvgIyauAnqiuIS.jpg',adjA:['warm','wet','fun'],adjB:['cold','quiet','high']},
+  {a:'City',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/tFlMXocbExfkhhku.jpg',b:'Countryside',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/enlALhZzLKLNLflE.jpg',adjA:['big','busy','loud'],adjB:['small','quiet','green']},
+  {a:'Hot Weather',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/iVZktymbASqEDdYw.jpg',b:'Cold Weather',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/FQQwbVsKDdABGYVs.jpg',adjA:['bright','sunny','dry'],adjB:['fresh','dark','wet']},
+  {a:'Big House',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/zLoWGZnmxxKFDjUM.jpg',b:'Small Apartment',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/MzdvvOSiDMoMkqPJ.jpg',adjA:['big','traditional','quiet'],adjB:['small','cheap','modern']},
+  {a:'Cooking at Home',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/cJiJzVvARMrVKJEo.jpg',b:'Restaurant',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/ADJfrvZNcsSsKEnY.jpg',adjA:['cheap','slow','healthy'],adjB:['fast','easy','nice']},
+  {a:'Dogs',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/gsYTcJvLLeqolWZn.jpg',b:'Cats',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/keSnWlWIwVZBGVRr.jpg',adjA:['big','loud','fun'],adjB:['small','quiet','soft']},
+  {a:'Travel by Plane',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/dKkqnliPMQkNwEYS.jpg',b:'Travel by Car',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/qiSTjInMNWQrHxbj.jpg',adjA:['fast','high','short'],adjB:['slow','long','cheap']},
+  {a:'Coffee',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/ZoFAiIbdABPoDFLR.jpg',b:'Tea',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/ojexGmAAZwjkwkGX.jpg',adjA:['hot','strong','dark'],adjB:['warm','soft','light']},
+  {a:'Zoo',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/CjPNlUXCDcuYXATy.jpg',b:'Circus',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/coXyXVXWjKeUCxtG.jpg',adjA:['big','loud','fun'],adjB:['live','funny','loud']},
+  {a:'Cinema',imgA:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/mWixNqBARlwVQbQD.jpg',b:'Theater',imgB:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/vjhkNkoLYIupaPoC.jpg',adjA:['dark','big','quiet'],adjB:['live','real','special'],teacher:true}
+];
+
+const ENVELOPES = [
+  {num:1,slang:'Bestie',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/RDgLIeSMwHOUNKYi.jpg'},
+  {num:2,slang:'My plus one',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/dJNuWftPnoGzEjXK.jpg'},
+  {num:3,slang:'My partner in crime',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/aKAYaxoyqnbDnNAJ.jpg'},
+  {num:4,slang:'My better half',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/hNUnUWRsfFhDtLRl.jpg'},
+  {num:5,slang:'My better half',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/qtisvvuQgtdGZoZL.jpg'},
+  {num:6,slang:'My partner in crime',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/PRQimPdCfkTMhugx.jpg'},
+  {num:7,slang:'Bestie',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/KVfMhAIURWaNHKUA.jpg'},
+  {num:8,slang:'Bestie',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/gItocuEXAyLGIbyI.jpg'},
+  {num:9,slang:'My plus one',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/ZbykkGSSQMUVDkMg.jpg'},
+  {num:10,slang:'My better half',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/RBSVCROUHJigicJD.jpg'}
+];
+
+const CELEBS = [
+  {name:'Billie Eilish',job:'Singer',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/DEeqGknlPpuPoTyr.jpg'},
+  {name:'Karol G',job:'Singer',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/acJwYJSPnAxnhgtS.jpg'},
+  {name:'Nicki Minaj',job:'Singer',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/JsfuBAumZylAfjzP.jpg'},
+  {name:'Neymar Jr.',job:'Soccer player',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/AIfBAaVGzJxauUIB.jpg'},
+  {name:'Dua Lipa',job:'Singer',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/rVrWqsfjniEGFMXV.jpg'},
+  {name:'Ryan Reynolds',job:'Actor',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/gizUhjgwwTULfICK.jpg'},
+  {name:'Tom Holland',job:'Actor',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/VNgVcOboGHLduGNg.jpg'},
+  {name:'J Balvin',job:'Singer',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/DlUqWDHMpemVragS.jpg'},
+  {name:'Harry Styles',job:'Singer',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/txVAiBRkRZiUpWFm.jpg'},
+  {name:'Selena Gomez',job:'Singer',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/QkotWOYmzmQSXkSb.jpg'},
+  {name:'Brad Pitt',job:'Actor',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/iLdkBahKvDCoRNLg.jpg'},
+  {name:'Justin Timberlake',job:'Singer',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/gWzQGhuCQAAbfwbT.jpg'}
+];
+
+const PROFESSIONS = [
+  {name:'Sofia',job:'Doctor',age:32,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/dVLfJUIUmYjoZvdF.jpg'},
+  {name:'Marco',job:'Chef',age:28,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/awzNhXXgWyrivgca.jpg'},
+  {name:'Emily',job:'Teacher',age:41,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/TckiGwfexClRLkql.jpg'},
+  {name:'James',job:'Firefighter',age:35,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/cWMjrZFxdQRofefL.jpg'},
+  {name:'Laura',job:'Nurse',age:29,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/hxYtAUTNdGuWxoiN.jpg'},
+  {name:'Carlos',job:'Architect',age:47,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/FKvxGEogvEDfTfiW.jpg'},
+  {name:'Diana',job:'Singer',age:26,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/lJDGQwNIhGOVlAFN.jpg'},
+  {name:'Ryan',job:'Pilot',age:38,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/fnOVMXyRNvUjFtJS.jpg'},
+  {name:'Ana',job:'Police officer',age:33,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/kPtikbLuLxSiUpBr.jpg'},
+  {name:'Tom',job:'Mechanic',age:52,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/AJKNGpgsDawiDDBn.jpg'},
+  {name:'Lisa',job:'Dentist',age:44,img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/ecglcFGjMEcEEgQT.jpg',teacher:true}
+];
+
+const MEET_PEOPLE = [
+  {name:'Rachel',job:'Accountant',rel:"Kevin's relative",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/kCxpXZywmkasUyTN.jpg'},
+  {name:'Brian',job:'Engineer',rel:"Ashley's best friend",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/YnfozNgrihvlyeUY.jpg'},
+  {name:'Karen',job:'Journalist',rel:"Patrick's colleague",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/joeOpGIWsfwwuWlt.jpg'},
+  {name:'Tyler',job:'Waiter',rel:"Megan's neighbor",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/IhOZpHzSuqEUwoSv.jpg'},
+  {name:'Sandra',job:'Manager',rel:"Scott's boss",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/PvNndgFGDWfYOHij.jpg'},
+  {name:'Derek',job:'Photographer',rel:"Linda's classmate",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/beZZhsoRIKfcOfkt.jpg'},
+  {name:'Melissa',job:'Scientist',rel:"Jason's fianc\u00e9e",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/RzgjcUxRHBNIulce.jpg'},
+  {name:'Chad',job:'Banker',rel:"Nicole's boyfriend",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/tqQhHVGseAHykcnL.jpg'},
+  {name:'Brittany',job:'Hairdresser',rel:"Steven's friend",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/xTImwAYACqmqfgez.jpg'},
+  {name:'Gary',job:'Vet',rel:"Amanda's relative",img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/sGDYuqzOenUaaInv.jpg'}
+];
+
+const REUNION_GUESTS = [
+  {name:'Sofia',job:'Doctor',rel:'Colleague',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/bYEOKTZbtGVvRUEx.jpg'},
+  {name:'Marco',job:'Chef',rel:'Neighbor',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/VvKrpEczjjVWYXrq.jpg'},
+  {name:'Emily',job:'Teacher',rel:'Classmate',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/zClZNAGZAYSMkcax.jpg'},
+  {name:'James',job:'Firefighter',rel:'Best friend',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/XyCMIZKUOUTZJndO.jpg'},
+  {name:'Laura',job:'Nurse',rel:'Relative',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/XszXJKejvrXKXLhR.jpg'},
+  {name:'Carlos',job:'Architect',rel:'Partner in crime',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/IDyOsIlygdEFiNZZ.jpg'},
+  {name:'Diana',job:'Lawyer',rel:'Boss',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/nQExBAJwUoPnbWSD.jpg'},
+  {name:'Ryan',job:'Pilot',rel:'Plus one',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/OXkBmvfqWIflWxGU.jpg'},
+  {name:'Ana',job:'Police officer',rel:'Better half',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/RYuCwmwbVwDtSOQw.jpg'},
+  {name:'Tom',job:'Mechanic',rel:'Friend',img:'https://files.manuscdn.com/user_upload_by_module/session_file/310519663634713668/WCcrDjTFtIJLQMay.jpg'}
+];
+
+const LP_DATA = {
+  1:{badge:'WARM-UP',badgeColor:'#7B2FBE',time:'7 min',title:'Pick Your Side',
+    activity:'A split-screen image is projected showing two large, colorful photos of contrasting options (e.g., Beach vs. Mountains). Students respond with a word or short phrase.<br><br><strong>Response model:</strong> "I prefer ___ because ___."<br><br>11 rounds are played. The last round (Cinema vs. Theater) is the teacher\'s model round.',
+    goal:'Students engage in light, low-pressure conversation using personal preferences. Activity builds class energy and confidence through visual support and a fun format.',
+    cues:'"Look at the screen! Beach or mountains? I prefer the beach because I love the sun! What about you, [Name]? Just one word is fine!" After each answer: "Great choice! Why?" (optional)',
+    dos:'Always share your own preference first to model the response. Accept one-word answers — this is a warm-up, not a grammar drill. Call each student by name for at least one round.',
+    donts:'Do NOT pressure students to give full sentences. Do NOT skip the last fun round — it generates energy for the rest of the class.',
+    pacing:'4–5 rounds in 7 minutes. Keep the energy light and fun.'},
+  2:{badge:'SLANGS',badgeColor:'#FF6B35',time:'8 min',title:'Slang or Not Slang?',
+    activity:'5 slang expressions are presented on a single slide, each with an illustrative image and explanation in English. The teacher presents each slang one by one.<br><br>1. "I\'m ___ and this is ___." &nbsp; 2. Bestie &nbsp; 3. My better half &nbsp; 4. My plus one &nbsp; 5. My partner in crime',
+    goal:'Students recognize and understand 5 informal expressions related to relationships and introductions. Teacher confirms comprehension of meaning without translation.',
+    cues:'Point to slang #1: "Look here — \'I\'m ___ and this is ___\'. We use this to introduce people." "Look at the next one: \'Bestie\'. This means your very best friend!"',
+    dos:'Explain the meaning entirely in English using simple synonyms and the images. Have students repeat the pronunciation of each slang.',
+    donts:'Do NOT translate the slangs to Spanish. Do NOT ask students to create their own sentences yet — this is just presentation.',
+    pacing:'Approximately 1.5 minutes per slang.'},
+  3:{badge:'SLANGS PRACTICE',badgeColor:'#F1C405',time:'8 min',title:'Which Slang Is It?',
+    activity:'10 numbered envelopes (1–10) are displayed. Clicking an envelope opens it and reveals the hidden image inside. The student identifies the slang that matches the revealed image.<br><br><strong>Response model:</strong> "The slang is <em>my bestie</em>. For example: she is my bestie."',
+    goal:'Students correctly identify and apply the 5 new slang expressions in context based on visual cues.',
+    cues:'"Look at this image. Which slang is it? Tell me the slang and give me an example!" After correct answer: "Perfect! Yes, they are partners in crime."',
+    dos:'Call each student by name to participate. Ensure every student produces both the identification and the example sentence.',
+    donts:'Do NOT accept one-word answers. Do NOT skip any student — everyone must participate.',
+    pacing:'Approximately 45 seconds per image.'},
+  4:{badge:'SPEAKING 1',badgeColor:'#0057FF',time:'7 min',title:'Meet & Greet',
+    activity:'11 celebrity cards are displayed face down. Clicking a card flips it to reveal the celebrity\'s photo, name, and occupation.<br><br><strong>Model 1:</strong> "Hi! I\'m ___ and I\'m a/an ___."<br><strong>Model 2:</strong> "Hi! I\'m ___ and this is ___. He/She is a/an ___."<br><br>Card #11 (Brad Pitt) is the teacher\'s model card.',
+    goal:'Students confidently produce two introduction structures: presenting themselves and presenting a third person.',
+    cues:'Teacher models: "Hi! I\'m Carlos and this is Brad Pitt. He is an actor." "[Name], your turn! Introduce yourself, then choose a card and introduce them!"',
+    dos:'Model both sentences clearly before asking students to participate. Ensure students use \'a/an\' correctly with occupations.',
+    donts:'Do NOT let students read from notes — they must speak naturally. Do NOT accept incomplete introductions.',
+    pacing:'About 40 seconds per student for both models.'},
+  5:{badge:'SPEAKING 2',badgeColor:'#00BCD4',time:'7 min',title:'Career Spot',
+    activity:'A carousel of 11 images shows fictional professionals. Image #11 (Lisa, Dentist) is the model character.<br><br><strong>A:</strong> "What\'s your name?" / "What do you do?"<br><strong>B:</strong> "My name is ___." / "I\'m a/an ___."',
+    goal:'Students interact directly with each other to ask and answer personal information questions.',
+    cues:'Teacher models with #11: "Ask me!" (Students ask, teacher answers as Lisa the dentist). "Now, [Name A], ask the questions. [Name B], you are the person in the image!"',
+    dos:'Assign pairs clearly: Student A asks, Student B answers. Rotate roles with the next image so everyone practices asking and answering.',
+    donts:'Do NOT ask the questions yourself — students must ask each other. Do NOT skip the modeling step with image #11.',
+    pacing:'About 40 seconds per pair interaction.'},
+  6:{badge:'LISTENING',badgeColor:'#E91E8C',time:'7 min',title:'Tune In',
+    activity:'Four short audio clips play one at a time. Each speaker introduces themselves (name, age, job) and a friend (name, age, job), states the relationship, and uses one of the 4 slangs.<br><br><strong>Listening guide columns:</strong> Speaker | Age | Job | Friend | Age | Job | Slang | Relationship',
+    goal:'Students identify key personal information and slang expressions from spoken English in a real-life context.',
+    cues:'"Listen carefully. What is her name? How old is she? What does she do? Who is her friend? What slang does she use?" Play each clip twice.',
+    dos:'Play each audio clip at least twice. Pause after each clip to check answers together. Tap each cell to reveal the correct answer. Celebrate correct answers immediately.',
+    donts:'Do NOT move to the next clip before checking answers. Do NOT skip the slang column — it is the main focus of the session.',
+    pacing:'About 1.5 minutes per clip (play twice + check answers). Keep the pace lively.'},
+  7:{badge:'EXIT TICKET',badgeColor:'#E53935',time:'8 min',title:'My People',
+    activity:'The model paragraph (Linda) is projected on screen. Students write their own paragraph introducing themselves and one person in their life, using their name, age, job and one slang from the session.<br><br><strong>Model:</strong> Hi! My name is Linda. I am 45 years old and I am a lawyer. This is Tom. He is 50 years old and he is an engineer. He is my partner in crime at work.<br><br>Students send their paragraph by private chat to the teacher for structure feedback. Then, each student shares their paragraph with the class. After sharing, the teacher asks comprehension questions: What is her/his name? How old is she/he? What does she/he do? Who is her/his [slang]?',
+    goal:'Students produce a written paragraph using first and third person structures, possessive adjectives, and slangs from the session in a real personal context.',
+    cues:'"Look at the model on screen. Write your own paragraph — talk about yourself and one person in your life. Use one of the slangs!" After sharing: "[Student B], what is her/his [slang]\'s name? How old is he/she?"',
+    dos:'Give individual written feedback via private chat before asking students to share aloud. Celebrate creative slang choices. Ensure every student produces both sentences.',
+    donts:'Do NOT ask students to share before you have reviewed their paragraph. Do NOT accept paragraphs that skip the slang.',
+    pacing:'3 min writing + 1 min private chat feedback + 4 min sharing in class (about 1 min per student).'},
+  8:{badge:'HOMEWORK',badgeColor:'#00C853',time:'',title:'Daily Homework',
+    activity:'Assign the following book pages for independent practice at home. Review them at the start of the next session.',
+    goal:'Students consolidate the session\'s content through written practice at home.',
+    cues:'"Tonight, please complete pages 39, 42, and 43 in your book. We will review them next class!"',
+    dos:'Remind students of the specific exercises. Encourage them to review the slangs before the next session.',
+    donts:'Do NOT assign additional work beyond what is listed. Do NOT forget to review homework at the start of Session 3.',
+    pacing:'Announce homework in the last 2 minutes of class.'}
+};
+
+// ─── NAVIGATION ──────────────────────────────────────────────────────────────
+let currentSlide = 0;
+
+function goHome(){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
+  document.getElementById('slide-0').classList.add('active');
+  document.querySelectorAll('.nav-pill').forEach(b=>b.classList.remove('active'));
+  currentSlide = 0;
+  document.getElementById('navCounter').textContent = '';
+  document.querySelector('.nav-bar').style.display = 'none';
+}
+
+function goToSlide(n){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
+  document.getElementById('slide-'+n).classList.add('active');
+  document.querySelectorAll('.nav-pill').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.nav-bar').style.display = 'flex';
+  const nb = document.getElementById('nb-'+n);
+  if(nb) nb.classList.add('active');
+  currentSlide = n;
+  document.getElementById('navCounter').textContent = n + ' / 8';
+  // Slide 4: build the deck now that the slide is visible
+  if(n === 4){
+    setTimeout(() => buildDeck(), 50);
+  }
+}
+
+// ─── WARM-UP ──────────────────────────────────────────────────────────────────
+let pickIdx = 0;
+function renderPick(){
+  const r = PICK_ROUNDS[pickIdx];
+  document.getElementById('pickContainer').innerHTML = `
+    <div class="pick-side">
+      <img src="${r.imgA}" alt="${r.a}">
+      <div class="pick-label">${r.a}</div>
+    </div>
+    <div class="pick-side">
+      <img src="${r.imgB}" alt="${r.b}">
+      <div class="pick-label">${r.b}</div>
+    </div>`;
+  // Render adjective panel
+  const panel = document.getElementById('pickAdjPanel');
+  panel.innerHTML =
+    '<div class="pick-adj-group">'+
+      '<div class="pick-adj-label">'+r.a+'</div>'+
+      r.adjA.map(w=>'<div class="pick-adj-tag">'+w+'</div>').join('')+
+    '</div>'+
+    '<div class="pick-adj-divider"></div>'+
+    '<div class="pick-adj-group">'+
+      '<div class="pick-adj-label">'+r.b+'</div>'+
+      r.adjB.map(w=>'<div class="pick-adj-tag">'+w+'</div>').join('')+
+    '</div>';
+  document.getElementById('pickCounter').textContent = (pickIdx+1)+' / '+PICK_ROUNDS.length;
+  document.getElementById('pickRound').textContent = 'Round '+(pickIdx+1)+' of '+PICK_ROUNDS.length;
+}
+function pickNext(){ if(pickIdx<PICK_ROUNDS.length-1){pickIdx++;renderPick();} }
+function pickPrev(){ if(pickIdx>0){pickIdx--;renderPick();} }
+
+// ─── ENVELOPES ────────────────────────────────────────────────────────────────
+function buildEnvelopes(){
+  document.getElementById('envelopesGrid').innerHTML = ENVELOPES.map(e=>`
+    <div class="envelope-wrap" id="env-${e.num}" onclick="this.classList.toggle('open')">
+      <div class="env-body">
+        <div class="env-num">${e.num}</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-photo" src="${e.img}" alt="envelope ${e.num}">
+      <div class="env-slang">${e.slang}</div>
+    </div>`).join('');
+}
+
+// ─── DECK OF CARDS ────────────────────────────────────────────────────────────
+function buildDeck(){
+  const pile   = document.getElementById("deckPile");
+  const played = document.getElementById("deckPlayed");
+  played.innerHTML = "<div class=\"deck-played-empty\">Click a number<br>to reveal</div>";
+  pile.innerHTML = "";
+  const grid = document.createElement("div");
+  grid.className = "deck-grid";
+  CELEBS.forEach((c, i) => {
+    const btn = document.createElement("button");
+    btn.className = "num-btn";
+    btn.id = "pcard-" + i;
+    btn.textContent = i + 1;
+    btn.setAttribute("aria-label", c.name);
+    btn.style.cssText = "background:#05046A !important;color:#ffffff !important;border:3px solid #ffffff !important;";
+    btn.addEventListener("click", () => {
+      if(btn.classList.contains("used")) return;
+      btn.classList.add("used");
+      const p = document.getElementById("deckPlayed");
+      p.innerHTML = "<div class=\"played-card-display\" style=\"animation:popIn 0.4s ease\">"
+        + "<img src=\"" + c.img + "\" alt=\"" + c.name + "\">"
+        + "<div class=\"pcd-info\"><div class=\"pcd-name\">" + c.name + "</div>"
+        + "<div class=\"pcd-job\">" + c.job + "</div></div></div>";
+    });
+    grid.appendChild(btn);
+  });
+  pile.appendChild(grid);
+  const resetBtn = document.createElement("button");
+  resetBtn.className = "deck-reset-new";
+  resetBtn.textContent = "↺ Reset";
+  resetBtn.onclick = buildDeck;
+  pile.appendChild(resetBtn);
+}
+
+
+function dealCard(idx, celeb, card){
+  if(!card || card.classList.contains('flipped')) return;
+
+  // Flip the card in place
+  card.classList.add('flipped');
+  deckDealt++;
+
+  // Show celebrity in right panel after flip halfway
+  setTimeout(() => {
+    const played = document.getElementById('deckPlayed');
+    played.innerHTML = `
+      <div class="played-card-display" style="animation:popIn 0.4s ease">
+        <img src="${celeb.img}" alt="${celeb.name}">
+        <div class="pcd-info">
+          <div class="pcd-name">${celeb.name}</div>
+          <div class="pcd-job">${celeb.job}</div>
+        </div>
+      </div>`;
+  }, 280);
+}
+
+function buildCelebs(){ buildDeck(); }
+
+// ─── CAROUSEL ─────────────────────────────────────────────────────────────────
+let carouselIdx = 0;
+function buildCarousel(){
+  const track = document.getElementById('coverflowTrack');
+  if(!track) return;
+  track.innerHTML = PROFESSIONS.map((p,i)=>`
+    <div class="cf-card" id="cf-${i}" onclick="cfGoTo(${i})">
+      <img src="${p.img}" alt="${p.name}">
+      <div class="cf-caption">
+        <div class="cf-name">${p.name}</div>
+        <div class="cf-job">${p.job}</div>
+        ${p.age ? `<div class="cf-age">${p.age} years old</div>` : ''}
+      </div>
+    </div>`).join('');
+  cfRender();
+}
+function cfRender(){
+  const cards = document.querySelectorAll('.cf-card');
+  const total = cards.length;
+  const spread = 110; // px between cards
+  cards.forEach((card, i) => {
+    const offset = i - carouselIdx;
+    const absOff = Math.abs(offset);
+    const tx = offset * spread;
+    const tz = -absOff * 80;
+    const ry = offset * -18;
+    const scale = absOff === 0 ? 1.35 : absOff === 1 ? 0.82 : absOff === 2 ? 0.65 : 0.5;
+    const opacity = absOff === 0 ? 1 : absOff === 1 ? 0.75 : absOff === 2 ? 0.5 : 0.3;
+    const blur = absOff === 0 ? 0 : absOff === 1 ? 1 : absOff === 2 ? 2 : 3;
+    const zIndex = total - absOff;
+    card.style.cssText = `
+      transform: translateX(${tx}px) translateZ(${tz}px) rotateY(${ry}deg) scale(${scale});
+      opacity: ${opacity};
+      filter: blur(${blur}px);
+      z-index: ${zIndex};
+    `;
+  });
+  document.getElementById('carouselCount').textContent = (carouselIdx+1)+' / '+PROFESSIONS.length;
+  document.getElementById('carouselCounter').textContent = (carouselIdx+1)+' / '+PROFESSIONS.length;
+}
+function cfGoTo(idx){ carouselIdx = idx; cfRender(); }
+function cfNext(){ if(carouselIdx < PROFESSIONS.length-1){ carouselIdx++; cfRender(); } }
+function cfPrev(){ if(carouselIdx > 0){ carouselIdx--; cfRender(); } }
+function carouselNext(){
+  cfNext();
+  if(false && carouselIdx<PROFESSIONS.length-1){
+    carouselIdx++;
+    document.getElementById('carouselCount').textContent=(carouselIdx+1)+' / '+PROFESSIONS.length;
+    document.getElementById('carouselCounter').textContent=(carouselIdx+1)+' / '+PROFESSIONS.length;
+  }
+}
+function carouselPrev(){
+  if(carouselIdx>0){
+    document.getElementById('car-'+carouselIdx).classList.remove('active');
+    carouselIdx--;
+    document.getElementById('car-'+carouselIdx).classList.add('active');
+    document.getElementById('carouselCount').textContent=(carouselIdx+1)+' / '+PROFESSIONS.length;
+    document.getElementById('carouselCounter').textContent=(carouselIdx+1)+' / '+PROFESSIONS.length;
+  }
+}
+
+// ─── SPEAKING 3 WHEEL ────────────────────────────────────────────────────────
+const WHEEL_COLORS = [
+  '#7B2FBE','#E91E8C','#FF6B35','#F1C405','#0057FF',
+  '#00BCD4','#E53935','#43A047','#FF8F00','#5E35B1'
+];
+
+let wheelActive = MEET_PEOPLE.map((_,i)=>i);
+let wheelAngle = 0;
+let wheelSpinning = false;
+
+function buildMeet(){
+  drawWheel();
+}
+
+function drawWheel(){
+  const canvas = document.getElementById('wheelCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W/2, cy = H/2, r = W/2 - 4;
+  ctx.clearRect(0,0,W,H);
+
+  const total = wheelActive.length;
+  if(total === 0){
+    ctx.fillStyle = 'rgba(255,255,255,0.1)';
+    ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = 'bold 18px Barlow, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('All done! 🎉', cx, cy);
+    return;
+  }
+
+  const sliceAngle = (Math.PI * 2) / total;
+
+  for(let i = 0; i < total; i++){
+    const idx = wheelActive[i];
+    const startAngle = wheelAngle + i * sliceAngle;
+    const endAngle = startAngle + sliceAngle;
+
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fillStyle = WHEEL_COLORS[idx % WHEEL_COLORS.length];
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(startAngle + sliceAngle / 2);
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 16px Barlow, sans-serif';
+    ctx.shadowColor = 'rgba(0,0,0,0.8)';
+    ctx.shadowBlur = 5;
+    const label = MEET_PEOPLE[idx].name;
+    ctx.fillText(label, r - 10, 0);
+    ctx.restore();
+  }
+
+  // Center circle
+  ctx.beginPath();
+  ctx.arc(cx, cy, 22, 0, Math.PI*2);
+  ctx.fillStyle = '#05046a';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(241,196,5,0.9)';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+}
+
+function spinWheel(){
+  if(wheelSpinning) return;
+  if(wheelActive.length === 0) return;
+
+  const btn = document.getElementById('wheelSpinBtn');
+  btn.disabled = true;
+  wheelSpinning = true;
+
+  document.getElementById('wheelCardArea').innerHTML = '';
+
+  const winnerSlot = Math.floor(Math.random() * wheelActive.length);
+  const total = wheelActive.length;
+  const sliceAngle = (Math.PI * 2) / total;
+
+  const extraSpins = 5 + Math.floor(Math.random() * 4);
+  const targetAngle = -Math.PI/2 - winnerSlot * sliceAngle - sliceAngle/2 + extraSpins * Math.PI * 2;
+
+  const startAngle = wheelAngle;
+  const duration = 3500 + Math.random() * 1000;
+  const startTime = performance.now();
+
+  function easeOut(t){ return 1 - Math.pow(1-t, 4); }
+
+  function animate(now){
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    wheelAngle = startAngle + (targetAngle - startAngle) * easeOut(t);
+    drawWheel();
+    if(t < 1){
+      requestAnimationFrame(animate);
+    } else {
+      wheelAngle = ((targetAngle % (Math.PI*2)) + Math.PI*2) % (Math.PI*2);
+      drawWheel();
+      wheelSpinning = false;
+      showWheelCard(wheelActive[winnerSlot], winnerSlot);
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+function showWheelCard(personIdx, slotIdx){
+  const p = MEET_PEOPLE[personIdx];
+  const area = document.getElementById('wheelCardArea');
+  area.innerHTML = '';
+  // Hide the 'Spin the wheel' placeholder — it's already cleared by innerHTML=''
+  const card = document.createElement('div');
+  card.className = 'wheel-person-card';
+  card.innerHTML =
+    '<img src="'+p.img+'" alt="'+p.name+'" loading="lazy">'+
+    '<div class="wheel-person-card-info">'+
+      '<div class="wheel-person-card-name">'+p.name+'</div>'+
+      '<div class="wheel-person-card-job">'+p.job+'</div>'+
+      '<div class="wheel-person-card-rel">'+p.rel+'</div>'+
+    '</div>';
+  card.addEventListener('click', function(){
+    wheelActive = wheelActive.filter(i => i !== personIdx);
+    area.innerHTML = wheelActive.length > 0
+      ? '<div class="wheel-empty">Spin again!</div>'
+      : '<div class="wheel-empty">All done! 🎉</div>';
+    drawWheel();
+    const btn = document.getElementById('wheelSpinBtn');
+    if(btn) btn.disabled = (wheelActive.length === 0);
+  });
+  area.appendChild(card);
+  const hint = document.createElement('div');
+  hint.className = 'wheel-card-hint';
+  hint.textContent = 'Click the card to dismiss and remove from wheel';
+  area.appendChild(hint);
+  // Auto-remove hint after animation completes (3s)
+  setTimeout(()=>{ if(hint.parentNode) hint.parentNode.removeChild(hint); }, 3100);
+  const btn = document.getElementById('wheelSpinBtn');
+  if(btn) btn.disabled = false;
+}
+
+// ─── REUNION ──────────────────────────────────────────────────────────────────
+const REUNION_GUESTS_LIST = [
+  {name:'Sofia',  job:'Doctor',        rel:"David's Colleague"},
+  {name:'Marco',  job:'Chef',          rel:"David's Neighbor"},
+  {name:'Emily',  job:'Teacher',       rel:"David's Classmate"},
+  {name:'James',  job:'Firefighter',   rel:"David's Best Friend"},
+  {name:'Laura',  job:'Nurse',         rel:"David's Relative"},
+  {name:'Carlos', job:'Architect',     rel:"David's Partner in Crime"},
+  {name:'Diana',  job:'Lawyer',        rel:"David's Boss"},
+  {name:'Ryan',   job:'Pilot',         rel:"David's Plus One"},
+  {name:'Ana',    job:'Police Officer',rel:"David's Better Half"},
+  {name:'Tom',    job:'Mechanic',      rel:"David's Friend"},
+];
+
+// Person positions on the photo as % of image dimensions (2752x1536 original)
+// These are used to place floating cards near each person.
+// Card appears to the right of the person if space allows, else to the left.
+// Format: [x%, y%] = center of person's upper chest in the ORIGINAL image
+const PERSON_POS = [
+  [21.0, 55.0],  // 1 Sofia  - yellow blazer front left
+  [21.0, 38.0],  // 2 Marco  - grey suit back left
+  [28.0, 40.0],  // 3 Emily  - green shirt back center-left
+  [65.0, 55.0],  // 4 James  - brown sweater front right
+  [31.0, 55.0],  // 5 Laura  - dotted blouse front center-left
+  [78.0, 38.0],  // 6 Carlos - beige jacket back far right
+  [37.0, 42.0],  // 7 Diana  - floral blazer back center
+  [66.0, 38.0],  // 8 Ryan   - grey+black back right
+  [51.0, 55.0],  // 9 Ana    - blue blazer front center
+  [55.0, 39.0],  // 10 Tom   - burgundy back center-right
+];
+
+function buildReunion(){
+  const sidebar = document.getElementById('rgSidebar');
+  sidebar.innerHTML = '';
+  REUNION_GUESTS_LIST.forEach(function(g, i){
+    const item = document.createElement('div');
+    item.className = 'rg-list-item';
+    item.id = 'rg-item-'+(i+1);
+    item.innerHTML = '<div class="rg-list-num" id="rg-num-'+(i+1)+'">'+(i+1)+'</div><div class="rg-list-name">'+g.name+'</div>';
+    item.addEventListener('click', function(){
+      if(item.classList.contains('rg-used')) return;
+      selectReunionGuest(i, g, item);
+    });
+    sidebar.appendChild(item);
+  });
+}
+
+function selectReunionGuest(idx, guest, itemEl){
+  // Mark list item as used (grey out)
+  itemEl.classList.add('rg-used');
+
+  // Remove any existing floating card
+  const existing = document.querySelector('.rg-float-card');
+  if(existing) existing.remove();
+
+  // Get the photo element and its rendered dimensions
+  const img = document.getElementById('reunionImg');
+  const wrap = document.getElementById('reunionPhotoWrap');
+  const imgRect = img.getBoundingClientRect();
+  const wrapRect = wrap.getBoundingClientRect();
+
+  // Person position as % of original image → convert to px on rendered image
+  const pos = PERSON_POS[idx];
+  const px = imgRect.left - wrapRect.left + imgRect.width * pos[0] / 100;
+  const py = imgRect.top - wrapRect.top + imgRect.height * pos[1] / 100;
+
+  // Create floating card (no GUEST # label, larger text)
+  const card = document.createElement('div');
+  card.className = 'rg-float-card';
+  card.innerHTML =
+    '<div class="rfc-name">'+guest.name+'</div>'+
+    '<div class="rfc-job">'+guest.job+'</div>'+
+    '<div class="rfc-rel">'+guest.rel+'</div>';
+
+  // Position card near the person's chest/torso area, not covering the face.
+  // py is already at chest level. Place card to the right if space, else left.
+  // Offset slightly below py so it sits on the clothing, not the face.
+  const CARD_W = 175;
+  const CARD_H = 90;
+  let left, top;
+  if(px + 16 + CARD_W < wrapRect.width - 4){
+    left = px + 16;
+  } else {
+    left = px - CARD_W - 16;
+  }
+  // Anchor top of card at the person's chest position
+  top = py - 10;
+  if(top < 4) top = 4;
+  if(top + CARD_H > imgRect.height - 4) top = imgRect.height - CARD_H - 4;
+
+  card.style.left = left + 'px';
+  card.style.top = top + 'px';
+  wrap.appendChild(card);
+}
+// ─── LESSON PLAN MODAL ────────────────────────────────────────────────────────
+function revealCell(td){
+  if(td.classList.contains('revealed')) return;
+  td.classList.add('revealed');
+}
+
+function openLP(n){
+  const d = LP_DATA[n]; if(!d) return;
+  document.getElementById('lpBadge').textContent = d.badge;
+  document.getElementById('lpBadge').style.background = d.badgeColor;
+  document.getElementById('lpBadge').style.color = (d.badgeColor==='#F1C405'||d.badgeColor==='#00C853') ? '#05046A' : 'white';
+  document.getElementById('lpTitle').textContent = d.title;
+  document.getElementById('lpTime').textContent = d.time;
+  document.getElementById('lpActivity').innerHTML = d.activity;
+  document.getElementById('lpGoal').textContent = d.goal;
+  document.getElementById('lpCues').textContent = d.cues;
+  document.getElementById('lpDos').textContent = d.dos;
+  document.getElementById('lpDonts').textContent = d.donts;
+  document.getElementById('lpPacing').textContent = d.pacing;
+  document.getElementById('lpOverlay').classList.add('open');
+}
+function closeLP(){ document.getElementById('lpOverlay').classList.remove('open'); }
+document.getElementById('lpOverlay').addEventListener('click',function(e){ if(e.target===this) closeLP(); });
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLP(); });
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+renderPick();
+buildEnvelopes();
+buildCelebs();
+buildCarousel();
+buildMeet();
+buildReunion();
+goHome();
+</script>
+
+</body></html>
